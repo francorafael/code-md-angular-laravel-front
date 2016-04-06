@@ -1,0 +1,33 @@
+{
+  "name": "laravel-codeproject-frontend",
+  "description": "Frontend de Gerenciador de Projetos",
+  "main": "",
+  "authors": [
+    "francorafael <rafael.apfsantos@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Rafael",
+    "Franco"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "/resources/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.1",
+    "angular-route": "1.4.1",
+    "angular-resource": "1.4.1",
+    "angular-animate": "1.4.1",
+    "angular-messages": "1.4.1",
+    "angular-bootstrap": "0.13.0",
+    "angular-strap": "2.2.4",
+    "bootstrap": "3.3.5",
+    "angular-oauth2": "^4.0.0"
+  }
+}
