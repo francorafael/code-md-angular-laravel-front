@@ -1,0 +1,6 @@
+//{
+//  //quando instalar alguma dependencia vai para bowercomponentes
+//  // essa pasta não vai para subir para o servidor
+//
+//  "directory": "resources/bower_components"
+//}
