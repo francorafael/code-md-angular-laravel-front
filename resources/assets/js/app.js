@@ -1,8 +1,25 @@
-var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers']);
+var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
+angular.module('app.services', ['ngResource']);
+
+app.provider('appConfig', function(){
+    var config = {
+        baseUrl: 'http://localhost:8000'
+    };
+
+    return {
+        config: config,
+        $get: function() {
+            return config;
+        }
+    }
+});
+
 //rotas
-app.config(['$routeProvider', 'OAuthProvider', function($routeProvider, OAuthProvider){
+app.config([
+    '$routeProvider', 'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
+    function($routeProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider){
     $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
@@ -12,14 +29,27 @@ app.config(['$routeProvider', 'OAuthProvider', function($routeProvider, OAuthPro
         .when('/home', {
             templateUrl: 'build/views/home.html',
             controller:'HomeController'
+        })
+
+        .when('/clients', {
+            templateUrl: 'build/views/client/list.html',
+            controller:'ClientListController'
         });
 
         //Autenticar
         OAuthProvider.configure({
-            baseUrl: 'http://localhost:8000',
+            baseUrl: appConfigProvider.config.baseUrl,
             clientId: 'appid1',
             clientSecret: 'secret', // optional
             grantPath: 'oauth/access_token',
+        });
+
+        //Deixar só com HTTP
+        OAuthTokenProvider.configure({
+            name: 'token',
+            options: {
+                secure: false
+            }
         });
 }]);
 
