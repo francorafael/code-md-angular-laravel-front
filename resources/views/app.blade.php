@@ -7,7 +7,10 @@
 	<title>Laravel</title>
 	<!-- facade do laravel verificar se o debug é true -->
 	@if(Config::get('app.debug'))
-		<link href="{{ asset('build/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/components.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/font-awesome.css') }}" rel="stylesheet">
 		<link href="{{ asset('build/css/vendor/bootstrap-theme.min.css') }}" rel="stylesheet">
 	@else
 		<link href="{{ elixir('css/all.css') }}" rel="stylesheet">
@@ -38,7 +41,8 @@
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('#/home') }}">Welcome</a></li>
-					<li><a href="{{ url('#/clients') }}">Clientes</a></li>
+					<li><a href="{{ url('#/clients') }}">List Clients</a></li>
+					<li><a href="{{ url('#/clients/new') }}">New Client</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -86,10 +90,35 @@
 		<!-- CONTROLLERS !-->
 		<script src="{{ asset('build/js/controllers/login.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/home.js') }}"></script>
+
 		<script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
+
+		<script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project/projectEdit.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project/projectRemove.js') }}"></script>
+
+		<script src="{{ asset('build/js/controllers/project-note/projectNoteShow.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-note/projectNoteList.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-note/projectNoteNew.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-note/projectNoteEdit.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-note/projectNoteRemove.js') }}"></script>
+
+
+		<!-- FILTERS !-->
+		<script src="{{ asset('build/js/filters/date-br.js') }}"></script>
+
+		<!-- DIRECTIVES !-->
+		<script src="{{ asset('build/js/directives/format-date.js') }}"></script>
 
 		<!-- SERVICES !-->
 		<script src="{{ asset('build/js/services/client.js') }}"></script>
+		<script src="{{ asset('build/js/services/project.js') }}"></script>
+		<script src="{{ asset('build/js/services/projectNote.js') }}"></script>
+		<script src="{{ asset('build/js/services/user.js') }}"></script>
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>
 	@endif

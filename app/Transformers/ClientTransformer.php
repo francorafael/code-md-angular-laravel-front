@@ -23,7 +23,7 @@ class ClientTransformer extends TransformerAbstract
     public function transform(Client $model) {
         return [
             'id'          => $model->id,
-            'nome'        => $model->name,
+            'name'        => $model->name,
             'responsible' => $model->responsible,
             'email'       => $model->email,
             'phone'       => $model->phone,
