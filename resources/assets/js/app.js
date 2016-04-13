@@ -1,19 +1,43 @@
-var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services', 'app.filters', 'app.directives']);
+var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services',
+    'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls', 'ui.bootstrap.dropdown']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.filters', []);
 angular.module('app.services', ['ngResource']);
 angular.module('app.directives', []);
 
-app.provider('appConfig', function(){
+
+
+app.provider('appConfig', ['$httpParamSerializerProvider', function($httpParamSerializerProvider){
     var config = {
         baseUrl: 'http://localhost:8000',
         project:{
             status: [
-                {value:'1', label: 'Não iniciado'},
-                {value:'2', label: 'Iniciado'},
-                {value:'3', label: 'Concluído'}
+                {value:1, label: 'Não iniciado'},
+                {value:2, label: 'Iniciado'},
+                {value:3, label: 'Concluído'}
             ]
+        },
+        utils: {
+            transformRequest: function (data) {
+                if (angular.isObject(data)) {
+                    return $httpParamSerializerProvider.$get()(data);
+                }
+                return data;
+            },
+            transformResponse: function(data, headers) {
+            //verificar tipo de conteudo recebido
+                var headerGetter = headers();
+                if(headerGetter['content-type'] == 'application/json' ||
+                    headerGetter['content-type'] == 'text/json'){
+                    var dataJson = JSON.parse(data);
+                    if(dataJson.hasOwnProperty('data')){
+                        dataJson = dataJson.data;
+                    }
+                    return dataJson;
+                }
+                return data;
+            }
         }
     };
 
@@ -23,7 +47,7 @@ app.provider('appConfig', function(){
             return config;
         }
     }
-});
+}]);
 
 //rotas
 app.config([
@@ -32,19 +56,8 @@ app.config([
     function($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider){
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        $httpProvider.defaults.transformResponse = function(data,headers){
-            //verificar tipo de conteudo recebido
-            var headerGetter = headers();
-            if(headerGetter['content-type'] == 'application/json' ||
-                headerGetter['content-type'] == 'text/json'){
-                var dataJson = JSON.parse(data);
-                if(dataJson.hasOwnProperty('data')){
-                    dataJson = dataJson.data;
-                }
-                return dataJson;
-            }
-            return data;
-        };
+        $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
+        $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
     $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
@@ -136,6 +149,7 @@ app.config([
                 secure: false
             }
         });
+
 }]);
 
 //depois que o angular é carregado isso é executado

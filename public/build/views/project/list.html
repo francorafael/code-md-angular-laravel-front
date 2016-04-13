@@ -13,6 +13,7 @@
                                 <th>Progress</th>
                                 <th>Status</th>
                                 <th>Due date</th>
+                                <th>Notes</th>
                                 <th>Ações</th>
 
                             </tr>
@@ -27,8 +28,13 @@
                                 <td>{{o.status}}</td>
                                 <td>{{o.due_date | dateBr}}</td>
                                 <td>
+                                    <a ng-href="#/project/{{o.id}}/notes/new">Add</a>
+                                    <a ng-href="#/project/{{o.id}}/notes">View</a>
+                                </td>
+                                <td>
                                     <a ng-href="#/projects/{{o.id}}/edit">Editar</a>
-                                    <a ng-href="#/projects/{{o.id}}/remove">Excluir</a> </td>
+                                    <a ng-href="#/project/{{o.id}}/remove">Excluir</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

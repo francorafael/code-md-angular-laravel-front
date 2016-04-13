@@ -39,11 +39,17 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar">
+
 				<ul class="nav navbar-nav">
+
 					<li><a href="{{ url('#/home') }}">Welcome</a></li>
-					<li><a href="{{ url('#/clients') }}">List Clients</a></li>
+					<li><a href="{{ url('#/clients') }}">Clients</a></li>
 					<li><a href="{{ url('#/clients/new') }}">New Client</a></li>
+					<li><a href="{{ url('#/projects') }}">Projects</a></li>
+					<li><a href="{{ url('#/projects/new') }}">New Project</a></li>
+
 				</ul>
+
 
 				<ul class="nav navbar-nav navbar-right">
 					@if(auth()->guest())
@@ -78,7 +84,7 @@
 		<script src="{{ asset('build/js/vendor/angular-resource.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-animate.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-messages.min.js') }}"></script>
-		<script src="{{ asset('build/js/vendor/ui-bootstrap.min.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/ui-bootstrap-tpls.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/navbar.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-cookies.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
@@ -113,6 +119,7 @@
 
 		<!-- DIRECTIVES !-->
 		<script src="{{ asset('build/js/directives/format-date.js') }}"></script>
+		<script src="{{ asset('build/js/directives/format-stringToNumber.js') }}"></script>
 
 		<!-- SERVICES !-->
 		<script src="{{ asset('build/js/services/client.js') }}"></script>
