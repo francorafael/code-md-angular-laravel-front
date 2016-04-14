@@ -2,26 +2,28 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Listagem de notas de projeto</div>
+                <div class="panel-heading">Listagem de arquivos de projetos</div>
                 <div class="panel-body">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Note</th>
-                                <th>Ação</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Link</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="o in projectNotes">
+                            <tr ng-repeat="o in projectFiles">
                                 <td>{{o.id}}</td>
-                                <td>{{o.title}}</td>
-                                <td>{{o.note | limitTo: 25 }}...</td>
+                                <td>{{o.name}}</td>
+                                <td>{{o.description | limitTo: 25 }}...</td>
+                                <td><project-file-download project-id="{{o.project_id}}" id-file="{{o.id}}">
+                                </project-file-download></td>
                                 <td>
-                                    <a ng-href="#/project/{{o.project_id}}/notes/{{o.id}}/edit">
-                                        Editar</a>
-                                    <a ng-href="#/project/{{o.project_id}}/notes/{{o.id}}/remove">Excluir</a> </td>
+                                    <a ng-href="#/project/{{o.project_id}}/files/{{o.id}}/edit"> Editar</a>
+                                    <a ng-href="#/project/{{o.project_id}}/files/{{o.id}}/remove"> Excluir</a> </td>
                             </tr>
                         </tbody>
                     </table>
