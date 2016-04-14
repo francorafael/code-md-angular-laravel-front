@@ -13,11 +13,6 @@ use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
-use Illuminate\Contracts\Filesystem\Factory as Storage;
-use Illuminate\Filesystem\Filesystem;
-
-
-
 
 class ProjectService
 {
@@ -37,15 +32,11 @@ class ProjectService
      * @param ProjectValidator $validator
      */
 
-    private $filesystem;
-    private $storage;
 
-    public function __construct(ProjectRepository $repository, ProjectValidator $validator, Filesystem $filesystem, Storage $storage)
+    public function __construct(ProjectRepository $repository, ProjectValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;
-        $this->filesystem = $filesystem;
-        $this->storage = $storage;
     }
 
     public function create(array $data)
@@ -113,11 +104,25 @@ class ProjectService
         }
     }
 
-    public function createFile(array $data)
+    private function checkProjectOwner($projectId)
     {
-        //consulta sem presenter - skipPresenter()
-        $project = $this->repository->skipPresenter()->find($data['project_id']);
-        $projectFile = $project->files()->create($data);
-        $this->storage->put($projectFile->id. "." . $data['extension'], $this->filesystem->get($data['file']));
+        $userId = Authorizer::getResourceOwnerId();
+        return $this->repository->isOwner($projectId, $userId);
     }
+
+    private function checkProjectMember($projectId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+        return $this->repository->hasMember($projectId, $userId);
+    }
+
+    private function checkProjectPermissions($projectId)
+    {
+        if( $this->checkProjectOwner($projectId) or $this->checkProjectMember($projectId)){
+            return true;
+        }
+        return false;
+    }
+
+
 }

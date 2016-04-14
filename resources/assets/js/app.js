@@ -1,5 +1,5 @@
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services',
-    'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls', 'ui.bootstrap.dropdown']);
+    'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls', 'ui.bootstrap.dropdown', 'ngFileUpload']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.filters', []);
@@ -132,6 +132,32 @@ app.config([
         .when('/project/:id/notes/:idNote/remove', {
             templateUrl: 'build/views/project-note/remove.html',
             controller: 'ProjectNoteRemoveController'
+        })
+
+
+        .when('/project/:id/files', {
+            templateUrl: 'build/views/project-file/list.html',
+            controller: 'ProjectFileListController'
+        })
+
+        .when('/project/:id/files/:idFile/show', {
+            templateUrl: 'build/views/project-file/show.html',
+            controller: 'ProjectFileShowController'
+        })
+
+        .when('/project/:id/files/new', {
+            templateUrl: 'build/views/project-file/new.html',
+            controller: 'ProjectFileNewController'
+        })
+
+        .when('/project/:id/files/:idFile/edit', {
+            templateUrl: 'build/views/project-file/edit.html',
+            controller: 'ProjectFileEditController'
+        })
+
+        .when('/project/:id/files/:idFile/remove', {
+            templateUrl: 'build/views/project-file/remove.html',
+            controller: 'ProjectFileRemoveController'
         });
 
         //Autenticar
