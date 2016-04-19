@@ -16,122 +16,51 @@ use CodeProject\Http\Requests;
 class ProjectFileController extends Controller
 {
 
-    /**
-     * @var ProjectFileRepository
-     */
     private $repository;
-
-    /**
-     * @var ProjectFileService
-     */
     private $service;
 
-
-    public function __construct(ProjectFileRepository $repository, ProjectFileService $service)
+    public function __construct(ProjectFileRepository $repository, ProjectFileService $sevice)
     {
         $this->repository = $repository;
-        $this->service = $service;
+        $this->service = $sevice;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($projectId)
+    public function index($id)
     {
-        return $this->service->getFiles($projectId);
+        return $this->repository->skipPresenter()->findWhere(['project_id' => $id]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store($id, Request $request)
     {
-        //
+        return [$this->service->create(array_merge($request->all(), ['project_id' => $id]))];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $projectId)
+    public function update($id, $projectFileId, Request $request)
     {
-        $data = [
-            'file' => $request->file('file'),
-            'extension' => $request->file('file')->getClientOriginalExtension(),
-            'name' => $request->name,
-            'description' => $request->description,
-            'project_id' => $projectId
-        ];
-
-        return $this->service->create($data);
+        return $this->service->update($request->all(), $projectFileId);
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($projectId, $id)
+
+    public function destroy($id, $file)
     {
-        return $this->service->find($projectId, $id);
+        $this->service->deleteFile($file);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function show($id, $idFile)
     {
-        //
+        return $this->repository->find($idFile);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $projectId, $id)
+    public function showFile($id, $idFile)
     {
-        $data = [
-            'name' => $request->name,
-            'description' => $request->description
-        ];
-
-        return $this->service->update($data, $id);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($projectId, $id)
-    {
-        return $this->service->delete($projectId, $id);
-    }
-
-    public function showFile($projectId, $id)
-{
-        $filePath = $this->service->getFilePath($id);
-        $fileContent = file_get_contents($filePath);
-        $file64 = base64_encode($fileContent);
-
+        //   dd($id);
+        $filePath = $this->service->getFilePath($idFile);
+        $fileContents = file_get_contents($filePath);
+        $file64 = base64_encode($fileContents);
+        $name = $this->service->getFileName($idFile);
         return [
             'file' => $file64,
             'size' => filesize($filePath),
-            'name' => basename($filePath)
-            // 'name' => $this->service->getFileName($id)
+            'name' => $name
         ];
-}
+    }
 }

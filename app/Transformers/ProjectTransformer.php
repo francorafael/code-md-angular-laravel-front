@@ -10,22 +10,25 @@ namespace CodeProject\Transformers;
 
 use CodeProject\Entities\Project;
 use League\Fractal\TransformerAbstract;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
 class ProjectTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = ['members', 'client'];
 
-    public function transform(Project $project)
+    public function transform(Project $model)
     {
         return [
-            'id' => $project->id,
-            'client_id' => $project->client_id,
-            'owner_id' => $project->owner_id,
-            'name' => $project->name,
-            'description' => $project->description,
-            'progress' => (int)$project->progress,
-            'status' => $project->status,
-            'due_date' => $project->due_date
+            'id' => $model->id,
+            'client_id' => $model->client_id,
+            'name' => $model->name,
+            'description' => $model->description,
+            'progress' => (int) $model->progress,
+            'status' => $model->status,
+            'due_date' => $model->due_date,
+            'created_at' => $model->created_at,
+            'updated_at' => $model->updated_at,
+            'is_member' => $model->owner_id != \Authorizer::getResourceOwnerId(),
         ];
     }
 

@@ -9,8 +9,10 @@
 namespace CodeProject\Services;
 
 
+use CodeProject\Entities\Project;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectValidator;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 
@@ -104,24 +106,29 @@ class ProjectService
         }
     }
 
-    private function checkProjectOwner($projectId)
+    public function checkProjectOwner($projectId)
     {
         $userId = Authorizer::getResourceOwnerId();
         return $this->repository->isOwner($projectId, $userId);
     }
 
-    private function checkProjectMember($projectId)
+    public function checkProjectMember($projectId)
     {
         $userId = Authorizer::getResourceOwnerId();
         return $this->repository->hasMember($projectId, $userId);
     }
 
-    private function checkProjectPermissions($projectId)
+    public function CheckProjectPermission($projectId)
     {
         if( $this->checkProjectOwner($projectId) or $this->checkProjectMember($projectId)){
             return true;
         }
         return false;
+    }
+
+    public function isOwner($userId, $projectId)
+    {
+        return !(count(Project::where(['id' => $projectId, 'owner_id' => $userId])->get())) ? false : true;
     }
 
 

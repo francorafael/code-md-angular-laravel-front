@@ -19,9 +19,9 @@ class Project extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        $u = $this->belongsTo(User::class, 'owner_id', 'id');
+        return $u;
     }
-
     public function client()
     {
         return $this->belongsTo(Client::class);

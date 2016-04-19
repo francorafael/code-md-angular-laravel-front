@@ -12,20 +12,15 @@ use CodeProject\Entities\ProjectNote;
 class ProjectNoteTransformer extends TransformerAbstract
 {
 
-    /**
-     * Transform the \ProjectNote entity
-     * @param \ProjectNote $model
-     *
-     * @return array
-     */
-    public function transform(ProjectNote $model) {
+    public function transform(ProjectNote $model)
+    {
         return [
+            'id' => $model->id,
             'project_id' => $model->project_id,
-            'id'         => $model->id,
-            'title'      => $model->title,
-            'note'       => $model->note,
+            'title' => $model->title,
+            'note' => $model->note,
             'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'updated_at' => $model->updated_at,
         ];
     }
 }

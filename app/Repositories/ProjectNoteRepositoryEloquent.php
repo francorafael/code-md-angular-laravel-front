@@ -23,8 +23,6 @@ class ProjectNoteRepositoryEloquent extends BaseRepository implements ProjectNot
         return ProjectNote::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -36,6 +34,11 @@ class ProjectNoteRepositoryEloquent extends BaseRepository implements ProjectNot
     public function presenter()
     {
         return ProjectNotePresenter::class;
+    }
+
+    public function exists($id)
+    {
+        return ProjectNote::find($id);
     }
 
 }

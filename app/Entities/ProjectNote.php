@@ -10,7 +10,7 @@ class ProjectNote extends Model implements Transformable
 {
     use TransformableTrait;
 
-    //falar quais campos que podem passar num processo de create com array
+    protected $table = "project_notes";
     protected $fillable = [
         'project_id',
         'title',

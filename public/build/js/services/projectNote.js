@@ -4,7 +4,8 @@ angular.module('app.services')
             id: '@id',
             idNote: '@idNote'
         }, {
-            update: {method: 'PUT'
+            update: {
+                method: 'PUT'
             }
         });
     }]);
