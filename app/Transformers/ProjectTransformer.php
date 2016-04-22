@@ -9,6 +9,7 @@
 namespace CodeProject\Transformers;
 
 use CodeProject\Entities\Project;
+use CodeProject\Transformers\ProjectMemberTransformer;
 use League\Fractal\TransformerAbstract;
 use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 

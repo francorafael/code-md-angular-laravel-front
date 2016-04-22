@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Tarefas
+                    <div class="pull-right col-md-10">
+                        <form class="form-inline" name="projectMemberForm" role="form"  ng-submit="save()">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Usuário</label>
+                                <div class="col-md-6 col-md-offset-1">
+                                    <input type="text" class="form-control" name="member_id"
+                                           typeahead="o as o.name for o in getUsers($viewValue)|limitTo:10 "
+                                           typeahead-input-formatter="formatName($model)"
+                                           typeahead-on-select="selectUser($item)"
+                                           typeahead-editable="false"
+                                           placeholder="Adicione um membro"
+                                           ng-model="userSelected"  required/>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="pm in projectMembers">
+                                <td>{{pm.user.data[0].name}}</td>
+                                <td>
+                                    <a ng-href="#/project/{{pm.project_id}}/member/{{pm.id}}/remove" class="btn btn-sm btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

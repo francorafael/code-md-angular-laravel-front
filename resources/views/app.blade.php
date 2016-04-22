@@ -55,6 +55,7 @@
 					@if(auth()->guest())
 						@if(!Request::is('auth/login'))
 							<li><a href="{{ url('#/login') }}">Login</a></li>
+							<li><a href="{{ url('#/logout') }}">Logout</a></li>
 						@endif
 						@if(!Request::is('auth/register'))
 							<li><a href="{{ url('/auth/register') }}">Register</a></li>
@@ -90,11 +91,13 @@
 		<script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/ng-file-upload.min.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/http-auth-interceptor.js') }}"></script>
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
 
 		<!-- CONTROLLERS !-->
 		<script src="{{ asset('build/js/controllers/login.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/loginModal.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/home.js') }}"></script>
 
 		<script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
@@ -113,10 +116,20 @@
 		<script src="{{ asset('build/js/controllers/project-note/projectNoteEdit.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/project-note/projectNoteRemove.js') }}"></script>
 
+		<script src="{{ asset('build/js/controllers/project-task/projectTaskList.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-task/projectTaskNew.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-task/projectTaskEdit.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-task/projectTaskRemove.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/project-task/projectTaskShow.js') }}"></script>
+
 		<script src="{{ asset('build/js/controllers/project-file/projectFileList.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/project-file/projectFileNew.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/project-file/projectFileEdit.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/project-file/projectFileRemove.js') }}"></script>
+
+		<!-- Project Member-->
+		<script src="{{ asset('build/js/controllers/project-member/projectMemberList.js')}}"></script>
+		<script src="{{ asset('build/js/controllers/project-member/projectMemberRemove.js')}}"></script>
 
 
 		<!-- FILTERS !-->
@@ -125,15 +138,20 @@
 		<!-- DIRECTIVES !-->
 		<script src="{{ asset('build/js/directives/format-date.js') }}"></script>
 		<script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
+		<script src="{{ asset('build/js/directives/login.js') }}"></script>
 		<script src="{{ asset('build/js/directives/format-stringToNumber.js') }}"></script>
 
 		<!-- SERVICES !-->
 		<script src="{{ asset('build/js/services/url.js') }}"></script>
+		<script src="{{ asset('build/js/services/oauthFixInterceptor.js') }}"></script>
 		<script src="{{ asset('build/js/services/client.js') }}"></script>
 		<script src="{{ asset('build/js/services/project.js') }}"></script>
 		<script src="{{ asset('build/js/services/projectNote.js') }}"></script>
+		<script src="{{ asset('build/js/services/projectTask.js') }}"></script>
+		<script src="{{ asset('build/js/services/projectMember.js')}}"></script>
 		<script src="{{ asset('build/js/services/projectFile.js') }}"></script>
 		<script src="{{ asset('build/js/services/user.js') }}"></script>
+
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>
 	@endif

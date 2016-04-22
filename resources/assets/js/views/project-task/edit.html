@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Tarefa</div>
+                <div class="panel-body">
+                    <form name='projectTaskForm' class="form-horizontal" role="form" ng-submit="save();">
+                        <div class="form-group" ng-class="{'has-error': !projectTaskForm.name.$valid && projectTaskForm.name.$touched}">
+                            <label class="col-md-4 control-label">Nome</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name" ng-model="projectTask.name" required="required">
+                                <div ng-messages="projectTaskForm.name.$error" class="help-block" ng-show="projectTaskForm.name.$touched">
+                                    <div ng-message="required">Campo Obrigatório!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': !projectTaskForm.start_date.$valid && projectTaskForm.start_date.$touched}">
+                            <label class="col-md-4 control-label">Data de Inicio: </label>
+                            <div class="col-md-6">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="start_date"
+                                           datepicker-popup="dd/MM/yyyy"
+                                           ng-model="projectTask.start_date"
+                                           is-open="start_date.status.opened"
+                                           close-text="Close"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="start_date.open($event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <div ng-messages="projectTaskForm.start_date.$error" class="help-block" ng-show="projectTaskForm.start_date.$touched">
+                                    <div ng-message="date">Data Inválida!!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': !projectTaskForm.due_date.$valid && projectTaskForm.due_date.$touched}">
+                            <label class="col-md-4 control-label">Data de término: </label>
+                            <div class="col-md-6">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="due_date"
+                                           datepicker-popup="dd/MM/yyyy"
+                                           ng-model="projectTask.due_date"
+                                           is-open="due_date.status.opened"
+                                           close-text="Close"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="due_date.open($event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <div ng-messages="projectTaskForm.due_date.$error" class="help-block" ng-show="projectTaskForm.due_date.$touched">
+                                    <div ng-message="date">Data Inválida!!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <label class="col-md-4 control-label">Status</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="status"
+                                        ng-options="s.value as s.label for s in status"
+                                        ng-model="projectTask.status">
+                                    <option value="">-- Seleciona um status --</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <a href="#/project/{{projectTask.project_id}}/tasks" class="btn btn-primary">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         \CodeProject\Entities\Client::truncate();
         \CodeProject\Entities\User::truncate();
 
+        DB::table('oauth_clients')->delete();
+
         $this->call(UserTableSeeder::class);
         $this->call(ClientTableSeeder::class);
         $this->call(ProjectTableSeeder::class);

@@ -10,21 +10,17 @@ class ProjectMember extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [
-        'project_id',
-        'member_id'
-    ];
+    protected $table = 'project_members';
+    protected $fillable = ['member_id', 'project_id'];
 
-    public $timestamps = false;
-
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsToMany(Project::class);
     }
 
     public function member()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class, 'project_members', 'id','member_id');
     }
 
 }

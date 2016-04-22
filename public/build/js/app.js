@@ -1,5 +1,6 @@
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services',
-    'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls', 'ui.bootstrap.dropdown', 'ngFileUpload']);
+    'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls',
+    'ui.bootstrap.dropdown', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.filters', []);
@@ -16,6 +17,12 @@ app.provider('appConfig', ['$httpParamSerializerProvider', function($httpParamSe
                 {value:1, label: 'Não iniciado'},
                 {value:2, label: 'Iniciado'},
                 {value:3, label: 'Concluído'}
+            ]
+        },
+        projectTask:{
+            status: [
+                {value:1, label: 'Completa'},
+                {value:2, label: 'Incompleta'}
             ]
         },
         urls: {
@@ -61,10 +68,23 @@ app.config([
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
         $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
+        $httpProvider.interceptors.splice(0, 1);
+        $httpProvider.interceptors.splice(0, 1);
+        $httpProvider.interceptors.push('oauthFixInterceptor');
     $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
             controller:'LoginController'
+        })
+
+        .when('/logout', {
+            resolve: {
+                logout:['$location', 'OAuthToken', function($location, OAuthToken) {
+                    //pegar os cookies do angular e vai destruir..
+                     OAuthToken.removeToken()
+                     return $location.path('/login');
+                }]
+            }
         })
 
         .when('/home', {
@@ -133,6 +153,26 @@ app.config([
             controller: 'ProjectNoteShowController'
         })
 
+        .when('/project/:id/tasks', {
+            templateUrl: 'build/views/project-task/list.html',
+            controller: 'ProjectTaskListController'
+        })
+        .when('/project/:id/task/new', {
+            templateUrl: 'build/views/project-task/new.html',
+            controller: 'ProjectTaskNewController'
+        })
+        .when('/project/:id/task/:idTask/edit', {
+            templateUrl: 'build/views/project-task/edit.html',
+            controller: 'ProjectTaskEditController'
+        })
+        .when('/project/:id/task/:idTask/remove', {
+            templateUrl: 'build/views/project-task/remove.html',
+            controller: 'ProjectTaskRemoveController'
+        })
+        .when('/project/:id/task/:idTask/show', {
+            templateUrl: 'build/views/project-task/show.html',
+            controller: 'ProjectTaskShowController'
+        })
 
         .when('/project/:id/files', {
             templateUrl: 'build/views/project-file/list.html',
@@ -157,6 +197,15 @@ app.config([
         .when('/project/:id/files/:idFile/remove', {
             templateUrl: 'build/views/project-file/remove.html',
             controller: 'ProjectFileRemoveController'
+        })
+
+        .when('/project/:id/members', {
+            templateUrl: 'build/views/project-member/list.html',
+            controller: 'ProjectMemberListController'
+        })
+        .when('/project/:id/member/:idMember/remove', {
+            templateUrl: 'build/views/project-member/remove.html',
+            controller: 'ProjectMemberRemoveController'
         });
 
         //Autenticar
@@ -180,19 +229,39 @@ app.config([
 //depois que o angular é carregado isso é executado
 //esta adicionando um evento OAuth error para se for invalido não retornanr se for um token
 // invalido retoranar uma atualizacao o token
-app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
-    $rootScope.$on('oauth:error', function(event, rejection) {
+app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth', function($rootScope, $location, $http, $modal, httpBuffer, OAuth) {
+    //evento e proxima rota atual
+    $rootScope.$on('$routeChangeStart', function(event,next,current){
+        //olhar next se é diferente do login e se token existe na aplicação
+        //url da rota que o usuario vai acessar
+        if(next.$$route.originalPath != '/login') {
+            //vai nos cookies do angular e verifica o token se não existir ele retorna falso
+            if(!OAuth.isAuthenticated()) {
+                $location.path('login');
+            }
+        }
+    });
+
+    $rootScope.$on('oauth:error', function (event, data) {
         // Ignore `invalid_grant` error - should be catched on `LoginController`.
-        if ('invalid_grant' === rejection.data.error) {
+        if ('invalid_grant' === data.rejection.data.error) {
             return;
         }
 
         // Refresh token when a `invalid_token` error occurs.
-        if ('invalid_token' === rejection.data.error) {
-            return OAuth.getRefreshToken();
+        if ('access_denied' === data.rejection.data.error) {
+            httpBuffer.append(data.rejection.config, data.deferred);
+            if (!$rootScope.loginModalOpened) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'build/views/templates/login-modal.html',
+                    controller: 'LoginModalController'
+                });
+                $rootScope.loginModalOpened = true;
+            }
+            return;
         }
 
         // Redirect to `/login` with the `error_reason`.
-        return $window.location.href = '/login?error_reason=' + rejection.data.error;
+        return $location.path('/login');
     });
 }]);

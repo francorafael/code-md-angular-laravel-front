@@ -34,6 +34,18 @@ class UserService
         $this->validator = $validator;
     }
 
+    public function all($limit = null)
+    {
+        try {
+            return $this->repository->paginate($limit);
+        } catch (\Exception $e) {
+            return [
+                "error" => true,
+                "message" => $e->getMessage()
+            ];
+        }
+    }
+
 
 
 }

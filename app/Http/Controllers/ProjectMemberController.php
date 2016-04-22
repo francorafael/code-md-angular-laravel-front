@@ -2,70 +2,49 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Http\Requests;
-use CodeProject\Services\ProjectMemberService;
 use Illuminate\Http\Request;
+use CodeProject\Http\Controllers\Controller;
+use CodeProject\Repositories\ProjectMemberRepository;
+use CodeProject\Services\ProjectMemberService;
 
 class ProjectMemberController extends Controller
 {
 
-    /**
-     * @var ProjectMemberService
-     */
+    private $repository;
     private $service;
 
-
-    /**
-     * @param ProjectMemberService $service
-     */
-    public function __construct(ProjectMemberService $service)
+    public function __construct(ProjectMemberRepository $repository, ProjectMemberService $service)
     {
+        $this->repository = $repository;
         $this->service = $service;
+        $this->middleware('check.project.owner', ['except' => ['index', 'show']]);
+        $this->middleware('check.project.permission', ['except' => ['store', 'destroy']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($projectId)
+    public function index($id)
     {
-        return $this->service->getMembers($projectId);
+        return $this->repository->findWhere(['project_id' => $id]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $projectId)
+    public function store(Request $request, $id)
     {
-        $data = $request->all();
-        $data['project_id'] = $projectId;
-
-        return $this->service->addMember($data);
+        if($request->member_id):
+            $member = $this->repository->skipPresenter()->findWhere(['member_id'=>$request->member_id, 'project_id'=>$id]);
+            if(count($member) == 0):
+                return $this->service->create(array_merge($request->all(), ['project_id' => $id]));
+            endif;
+        endif;
+        return ['error'=>'O membro já pertence ao projeto!']   ;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($projectId, $id)
+    public function show($id, $memberId)
     {
-        return $this->service->getMember($projectId, $id);
+        return $this->repository->find($memberId);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($projectId, $id)
+    public function destroy($id, $memberId)
     {
-        return $this->service->removeMember($projectId, $id);
+        return ['deleted'=>$this->service->delete($memberId)];
     }
+
 }
