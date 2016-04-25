@@ -1,8 +1,10 @@
 angular.module('app.controllers')
-        .controller('ProjectMemberListController', ['$scope', '$routeParams', 'ProjectMember', 'User',
-            function ($scope, $routeParams, ProjectMember, User) {
-                $scope.projectMember = new ProjectMember();
+        .controller('ProjectMemberListController', ['$scope', '$routeParams', 'ProjectMember', 'Member',
+            function ($scope, $routeParams, ProjectMember, Member) {
+                $scope.projectMembers = [];
+                $scope.selectMembers = [];
                 $scope.project_id = $routeParams.id;
+                $scope.projectMember = new ProjectMember();
                 $scope.save = function () {
                     if ($scope.projectMemberForm.$valid) {
                         $scope.projectMember.$save({id: $routeParams.id})
@@ -13,10 +15,12 @@ angular.module('app.controllers')
                     }
                 };
                 $scope.loadMember = function () {
-                    $scope.projectMembers = ProjectMember.query({
+                    ProjectMember.query({
                         id: $routeParams.id,
                         orderBy: 'id',
                         sortedBy: 'desc'
+                    }, function(data){
+                        $scope.projectMembers = data;
                     });
                 };
 
@@ -30,9 +34,9 @@ angular.module('app.controllers')
                 };
 
 
-                $scope.getUsers = function (name) {
+                $scope.getMembers = function (name) {
                     //$promise - trava a execução do javascript ate os dados serem retornados
-                    return User.query({
+                    return Member.query({
                         search:name,
                         searchFields:'name:like'
                     }).$promise;

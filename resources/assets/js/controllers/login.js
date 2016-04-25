@@ -14,6 +14,10 @@ angular.module('app.controllers')
         error: false
     };
 
+    if(OAuth.isAuthenticated()) {
+        $location.path('/home');
+    }
+
     //Autenticando
     $scope.login = function() {
         if($scope.form.$valid) {

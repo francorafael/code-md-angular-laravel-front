@@ -22,7 +22,7 @@
                         </thead>
                         <!-- {{o.client.data.name}} para acessar a data dos transformes-->
                         <tbody>
-                            <tr ng-repeat="o in projects">
+                            <tr dir-paginate="o in projects| itemsPerPage: projectsPerPage" total-items="totalProjects" current-page="pagination.current">
                                 <td>{{o.id}}</td>
                                 <td>{{o.name}}</td>
                                 <td>{{o.client.data.name}}</td>
@@ -47,6 +47,8 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

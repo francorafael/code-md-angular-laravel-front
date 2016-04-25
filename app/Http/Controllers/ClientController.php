@@ -30,7 +30,8 @@ class ClientController extends Controller
 
     public function index(Request $request)
     {
-        return $this->service->all($request->query->get('limit'));
+        $limit = $request->query->get('limit', 15);
+        return $this->service->all($limit);
     }
 
     public function store(Request $request)

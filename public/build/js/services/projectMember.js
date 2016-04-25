@@ -5,12 +5,16 @@ angular.module('app.services')
                 return $resource(appConfig.baseUrl + '/project/:id/member/:idMember', {
                     id: '@id',
                     idMember: '@idMember'
-                }, {
+                },
+                    {
                     update: {
                         method: 'PUT'
                     },
                     'delete': {
                         method: 'DELETE'
+                    },
+                    query: {
+                        isArray: true
                     }
                 });
             }]);

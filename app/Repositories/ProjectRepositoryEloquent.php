@@ -30,16 +30,25 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
         return false;
     }
 
-    // METHODS TO RELATIONS WITH USERS
-    public function findWithOwnerAndMember($userId)
+    //Método para utilizar paginacao com angular
+    public function findOwner($userId, $limit = null, $colums = array())
     {
-        return $this->scopeQuery(function($queryBuilder) use($userId) {
-            return $queryBuilder->select('projects.*')
-                ->leftJoin('project_members', 'project_members.project_id', '=', 'projects.id')
-                ->where('project_members.member_id', '=', $userId)
-                ->union($this->model->query()->getQuery()->where('owner_id', '=', $userId));
-        })->all();
+        return $this->scopeQuery(function($query) use($userId) {
+            return $query->select('projects.*')->where('owner_id', '=', $userId);
+        })->paginate($limit, $colums);
     }
+
+    // METHODS TO RELATIONS WITH USERS
+//    public function findWithOwnerAndMember($userId)
+//    {
+//        return $this->scopeQuery(function($queryBuilder) use($userId) {
+//            return $queryBuilder->select('projects.*')
+//                ->leftJoin('project_members', 'project_members.project_id', '=', 'projects.id')
+//                ->where('project_members.member_id', '=', $userId)
+//                ->union($this->model->query()->getQuery()->where('owner_id', '=', $userId));
+//        })->all();
+//        //})->paginate(); - da erro 500
+//    }
 
 
     public function hasMember($projectId, $memberId)

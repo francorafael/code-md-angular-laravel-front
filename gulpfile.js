@@ -15,20 +15,23 @@ config.bower_path = config.assets_path + '/../bower_components';
 config.build_path_js = config.build_path + '/js';
 config.build_vendor_path_js = config.build_path_js + '/vendor';
 config.vendor_path_js = [
- config.bower_path + '/jquery/dist/jquery.min.js',
- config.bower_path + '/bootstrap/dist/js/bootstrap.min.js',
- config.bower_path + '/angular/angular.min.js',
- config.bower_path + '/angular-route/angular-route.min.js',
- config.bower_path + '/angular-resource/angular-resource.min.js',
- config.bower_path + '/angular-animate/angular-animate.min.js',
- config.bower_path + '/angular-messages/angular-messages.min.js',
- config.bower_path + '/angular-bootstrap/ui-bootstrap-tpls.min.js',
- config.bower_path + '/angular-strap/dist/modules/navbar.min.js',
- config.bower_path + '/angular-cookies/angular-cookies.min.js',
- config.bower_path + '/query-string/query-string.js',
- config.bower_path + '/angular-oauth2/dist/angular-oauth2.min.js',
- config.bower_path + '/ng-file-upload/ng-file-upload.min.js',
- config.bower_path + '/angular-http-auth/src/http-auth-interceptor.js',
+     config.bower_path + '/jquery/dist/jquery.min.js',
+     config.bower_path + '/bootstrap/dist/js/bootstrap.min.js',
+     config.bower_path + '/angular/angular.min.js',
+     config.bower_path + '/angular-route/angular-route.min.js',
+     config.bower_path + '/angular-resource/angular-resource.min.js',
+     config.bower_path + '/angular-animate/angular-animate.min.js',
+     config.bower_path + '/angular-messages/angular-messages.min.js',
+     config.bower_path + '/angular-bootstrap/ui-bootstrap-tpls.min.js',
+     config.bower_path + '/angular-strap/dist/modules/navbar.min.js',
+     config.bower_path + '/angular-strap/dist/modules/dropdown.min.js',
+     config.bower_path + '/angular-strap/dist/angular-strap.min.js',
+     config.bower_path + '/angular-cookies/angular-cookies.min.js',
+     config.bower_path + '/query-string/query-string.js',
+     config.bower_path + '/angular-oauth2/dist/angular-oauth2.min.js',
+     config.bower_path + '/ng-file-upload/ng-file-upload.min.js',
+     config.bower_path + '/angular-http-auth/src/http-auth-interceptor.js',
+     config.bower_path + '/angularUtils-pagination/dirPagination.js',
 ];
 
 config.build_path_css = config.build_path + '/css';

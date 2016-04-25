@@ -46,6 +46,18 @@ class UserService
         }
     }
 
+    public function allUsers()
+    {
+        try {
+            return $this->repository->all();
+        } catch (\Exception $e) {
+            return [
+                "error" => true,
+                "message" => $e->getMessage()
+            ];
+        }
+    }
+
 
 
 }

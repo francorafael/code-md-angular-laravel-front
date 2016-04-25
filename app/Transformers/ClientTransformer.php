@@ -37,6 +37,7 @@ class ClientTransformer extends TransformerAbstract
     public function includeProjects(Client $client)
     {
         $transformer = new ProjectTransformer();
+        //meu default includes é vazio
         $transformer->setDefaultIncludes([]);
 
         return $this->collection($client->projects, $transformer);

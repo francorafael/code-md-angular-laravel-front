@@ -38,6 +38,11 @@ class UserController extends Controller
         return $this->service->all($request->query->get('limit'));
     }
 
+    public function allUsers()
+    {
+        return $this->service->allUsers();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

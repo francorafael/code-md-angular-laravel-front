@@ -1,6 +1,7 @@
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services',
     'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls',
-    'ui.bootstrap.dropdown', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor']);
+    'ui.bootstrap.dropdown', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination',
+    'mgcrea.ngStrap.navbar', 'mgcrea.ngStrap.dropdown', 'ui.bootstrap.tabs']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.filters', []);
@@ -36,12 +37,12 @@ app.provider('appConfig', ['$httpParamSerializerProvider', function($httpParamSe
                 return data;
             },
             transformResponse: function(data, headers) {
-            //verificar tipo de conteudo recebido
+
                 var headerGetter = headers();
                 if(headerGetter['content-type'] == 'application/json' ||
                     headerGetter['content-type'] == 'text/json'){
                     var dataJson = JSON.parse(data);
-                    if(dataJson.hasOwnProperty('data')){
+                    if(dataJson.hasOwnProperty('data') && Object.keys(dataJson).length == 1){
                         dataJson = dataJson.data;
                     }
                     return dataJson;
@@ -64,6 +65,7 @@ app.config([
     '$routeProvider', '$httpProvider', 'OAuthProvider',
     'OAuthTokenProvider', 'appConfigProvider',
     function($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider){
+
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
@@ -92,25 +94,42 @@ app.config([
             controller:'HomeController'
         })
 
+        .when('/clients/dashboard', {
+            templateUrl: 'build/views/client/dashboard.html',
+            controller:'ClientDashboardController',
+            title: 'Clients'
+        })
+
         .when('/clients', {
             templateUrl: 'build/views/client/list.html',
-            controller:'ClientListController'
+            controller:'ClientListController',
+            title: 'Clients'
         })
 
         .when('/clients/new', {
             templateUrl: 'build/views/client/new.html',
-            controller:'ClientNewController'
+            controller:'ClientNewController',
+            title: 'Clients'
         })
 
         .when('/client/:id/edit', {
             templateUrl: 'build/views/client/edit.html',
-            controller: 'ClientEditController'
+            controller: 'ClientEditController',
+            title: 'Clients'
         })
 
         .when('/client/:id/remove', {
             templateUrl: 'build/views/client/remove.html',
-            controller: 'ClientRemoveController'
+            controller: 'ClientRemoveController',
+            title: 'Clients'
         })
+
+        .when('/projects/dashboard', {
+            templateUrl: 'build/views/project/dashboard.html',
+            controller:'ProjectDashboardController',
+            title: 'Projects'
+        })
+
 
         .when('/projects', {
             templateUrl: 'build/views/project/list.html',
@@ -240,6 +259,10 @@ app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth', fu
                 $location.path('login');
             }
         }
+    });
+
+    $rootScope.$on('$routeChangeSuccess', function(event,current,previous){
+        $rootScope.pageTitle = current.$$route.title;
     });
 
     $rootScope.$on('oauth:error', function (event, data) {
