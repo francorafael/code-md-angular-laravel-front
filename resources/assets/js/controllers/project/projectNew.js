@@ -1,8 +1,9 @@
 angular.module('app.controllers')
     .controller('ProjectNewController', [
-        '$scope', '$location', '$cookies', '$routeParams', 'Project', 'Client', 'appConfig',
-        function ($scope, $location, $cookies, $routeParams, Project, Client, appConfig) {
+        '$scope', '$location', '$cookies', '$routeParams', 'Project', 'ClientProject', 'appConfig',
+        function ($scope, $location, $cookies, $routeParams, Project, ClientProject, appConfig) {
             $scope.project = new Project();
+            $scope.clients = {};
             //retornando os status de app config
             $scope.status = appConfig.project.status;
 
@@ -32,13 +33,21 @@ angular.module('app.controllers')
                 return "";
             };
 
+            //$scope.getClients = function (name) {
+            //    //$promise - trava a execução do javascript ate os dados serem retornados
+            //    return Client.query({
+            //        search:name,
+            //        searchFields:'name:like'
+            //    }).$promise;
+            // };
             $scope.getClients = function (name) {
-                //$promise - trava a execução do javascript ate os dados serem retornados
-                return Client.query({
-                    search:name,
-                    searchFields:'name:like'
+                return ClientProject.query({
+                    id: $routeParams.id,
+                    search: name,
+                    searchFields: 'name:like'
                 }).$promise;
-            };
+            }
+
 
             $scope.selectClient = function (item) {
                 $scope.project.client_id = item.id;

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>Project Manager</title>
 	<!-- facade do laravel verificar se o debug é true -->
 	@if(Config::get('app.debug'))
 		<link href="{{ asset('build/css/font-awesome.css') }}" rel="stylesheet">
@@ -17,7 +17,7 @@
 	@endif
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
+		<link rel="shortcut icon" href="build/images/logo.png">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -107,6 +107,7 @@
 
 		<!-- DIRECTIVES !-->
 		<script src="{{ asset('build/js/directives/menu-activated.js') }}"></script>
+		<script src="{{ asset('build/js/directives/tab-project.js') }}"></script>
 		<script src="{{ asset('build/js/directives/format-date.js') }}"></script>
 		<script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
 		<script src="{{ asset('build/js/directives/login.js') }}"></script>
@@ -117,6 +118,7 @@
 		<script src="{{ asset('build/js/services/url.js') }}"></script>
 		<script src="{{ asset('build/js/services/oauthFixInterceptor.js') }}"></script>
 		<script src="{{ asset('build/js/services/client.js') }}"></script>
+		<script src="{{ asset('build/js/services/clientProject.js') }}"></script>
 		<script src="{{ asset('build/js/services/project.js') }}"></script>
 		<script src="{{ asset('build/js/services/projectNote.js') }}"></script>
 		<script src="{{ asset('build/js/services/projectTask.js') }}"></script>

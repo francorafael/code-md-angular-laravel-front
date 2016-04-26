@@ -10,10 +10,10 @@
                                     Projetos
 
                                     <div class="btn-group pull-right">
-                                        <a href="" class="btn btn-primary btn-sm text-upper">
+                                        <a ng-href="/#/projects" class="btn btn-primary btn-sm text-upper">
                                             <small>Ver todos</small>
                                         </a>
-                                        <a href="" class="btn btn-default btn-sm">
+                                        <a ng-href="/#/projects/new" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
@@ -49,29 +49,29 @@
                             </h4>
                         </div>
                         <div class="boxed-manager-main-body">
-                            <div class="btn-group" role="tablist">
-                                <a href="#detalhes"
+                            <div class="btn-group" role="tablist" tab-project>
+                                <a href=""
                                    aria-controls="detalhes"
                                    role="tab"
                                    data-toggle="tab"
                                    class="btn btn-default active">
                                     Detalhes
                                 </a>
-                                <a href="#tarefas"
+                                <a href=""
                                    aria-controls="tarefas"
                                    role="tab"
                                    data-toggle="tab"
                                    class="btn btn-default">
                                     Tarefas
                                 </a>
-                                <a href="#arquivos"
+                                <a href=""
                                    aria-controls="arquivos"
                                    role="tab"
                                    data-toggle="tab"
                                    class="btn btn-default">
                                     Arquivos
                                 </a>
-                                <a href="#anotacoes"
+                                <a href=""
                                    aria-controls="anotacoes"
                                    role="tab"
                                    data-toggle="tab"
@@ -82,81 +82,20 @@
 
                             <br/>
                             <br/>
-                            <tabset type="pills">
-                                <tab index="0" heading="Detalhes">
-                                    {{ project.description }}
-                                </tab>
-                                <tab index="1" heading="Tarefas">
-                                    {{  }}
-                                </tab>
-                                <tab index="2" heading="Arquivos">
-                                    {{  }}
-                                </tab>
-                                <tab index="3" heading="Anotações">
-                                    {{ }}
-                                </tab>
-                            </tabset>
+
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="detalhes">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Debitis eius et illo quaerat quasi sit voluptatibus.
-                                        A autem debitis doloremque exercitationem mollitia neque
-                                        quasi quidem ratione vitae voluptate? Architecto at odit
-                                        quia? Aperiam nihil omnis pariatur quae quia recusandae
-                                        rem? Aperiam dolore, exercitationem fuga illo ipsa nemo
-                                        repudiandae similique soluta!</p>
+                                    <p>{{ project.description }}</p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Accusantium libero magni maxime perspiciatis provident
-                                        qui rem similique sit ut vero! Beatae deleniti eum eveniet,
-                                        iure magnam necessitatibus possimus sit tempora.</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="tarefas">
                                     <div class="task-list">
                                         <h6 class="task-list-title">Requirements:</h6>
                                         <ul class="task-list-body">
-                                            <li>
+                                            <li ng-repeat="o in project.tasks.data">
                                                 <label>
                                                     <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                        </ul>
-
-                                        <h6 class="task-list-title">Development:</h6>
-                                        <ul class="task-list-body">
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                        </ul>
-
-                                        <h6 class="task-list-title">Design:</h6>
-                                        <ul class="task-list-body">
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    {{ o.name }}
                                                 </label>
                                             </li>
                                         </ul>
@@ -164,48 +103,13 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="arquivos">
                                     <div class="files-list-blocks">
+                                        <project-file-download
+                                            id-project="{{ o.project_id}}" id-file="{{o.id}}" ng-repeat="o in project.files.data">
+                                        </project-file-download>
                                         <a href="">
                                             <img src="build/images/icons/ico-ai.png" alt="" />
                                         </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-css.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-doc.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-eps.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-flash.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-html.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-jpg.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-mp3.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-mp4.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-pdf.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-php.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-png.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-txt.png" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="build/images/icons/ico-xml.png" alt="" />
-                                        </a>
+
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="anotacoes">
@@ -281,7 +185,7 @@
                         </div>
                         <div class="boxed-manager-info-body">
                             <div class="boxed-manager-info-body-chart text-center">
-                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="90">
+                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{ project.progress }}">
                                     <div class="circle">
                                         <div class="mask full">
                                             <div class="fill"></div>
@@ -294,7 +198,7 @@
                                     </div>
                                     <div class="inset">
                                         <div class="percentage">
-                                            <div class="numbers">90%</div>
+                                            <div class="numbers">{{ project.progress }}%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -305,11 +209,11 @@
                                 <li class="list-styled-header text-upper text-center">
                                     Cliente
                                 </li>
-                                <li class="text-center text-silver">Nome do cliente</li>
+                                <li class="text-center text-silver">{{ project.client.data.name }}</li>
                                 <li class="list-styled-header text-upper text-center">
                                     Data de entrega
                                 </li>
-                                <li class="text-center text-silver">20/09/2015</li>
+                                <li class="text-center text-silver">{{ project.due_date | dateBr }}</li>
                                 <li class="list-styled-header text-upper text-center">
                                     Tarefas (12)
                                 </li>

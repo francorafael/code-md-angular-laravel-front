@@ -34,6 +34,11 @@ class ClientController extends Controller
         return $this->service->all($limit);
     }
 
+    public function clientsProject()
+    {
+        return $this->service->clientsProject();
+    }
+
     public function store(Request $request)
     {
         return $this->service->create($request->all());

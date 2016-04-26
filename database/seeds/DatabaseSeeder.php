@@ -17,22 +17,22 @@ class DatabaseSeeder extends Seeder
         DB::statement("SET foreign_key_checks = 0");
 
 
-//        \CodeProject\Entities\ProjectMember::truncate();
-//        \CodeProject\Entities\ProjectTask::truncate();
-//        \CodeProject\Entities\ProjectNote::truncate();
-//        \CodeProject\Entities\Project::truncate();
-//        \CodeProject\Entities\Client::truncate();
-//        \CodeProject\Entities\User::truncate();
+        \CodeProject\Entities\ProjectMember::truncate();
+        \CodeProject\Entities\ProjectTask::truncate();
+        \CodeProject\Entities\ProjectNote::truncate();
+        \CodeProject\Entities\Project::truncate();
+        \CodeProject\Entities\Client::truncate();
+        \CodeProject\Entities\User::truncate();
 
-       // DB::table('oauth_clients')->delete();
+        DB::table('oauth_clients')->delete();
 
-//        $this->call(UserTableSeeder::class);
-//        $this->call(ClientTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(ClientTableSeeder::class);
         $this->call(ProjectTableSeeder::class);
-//        $this->call(ProjectNoteTableSeeder::class);
-//        $this->call(ProjectTaskTableSeeder::class);
-//        $this->call(ProjectMemberTableSeeder::class);
-//        $this->call(OAuthClientSeeder::class);
+        $this->call(ProjectNoteTableSeeder::class);
+        $this->call(ProjectTaskTableSeeder::class);
+        $this->call(ProjectMemberTableSeeder::class);
+        $this->call(OAuthClientSeeder::class);
 
         
         Model::reguard();

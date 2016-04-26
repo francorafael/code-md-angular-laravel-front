@@ -47,6 +47,18 @@ class ClientService
         }
     }
 
+    public function clientsProject()
+    {
+        try {
+            return $this->repository->all();
+        } catch (\Exception $e) {
+            return [
+                "error" => true,
+                "message" => $e->getMessage()
+            ];
+        }
+    }
+
     public function create(array $data)
     {
         try {
