@@ -11,7 +11,8 @@
 		<link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet">
 		<link href="{{ asset('build/css/components.css') }}" rel="stylesheet">
 		<link href="{{ asset('build/css/app.css') }}" rel="stylesheet">
-		<link href="{{ asset('build/css/vendor/bootstrap-theme.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('build/css/vendor/angular-ui-notification.min.css') }}" rel="stylesheet">
 	@else
 		<link href="{{ elixir('css/all.css') }}" rel="stylesheet">
 	@endif
@@ -59,6 +60,11 @@
 		<script src="{{ asset('build/js/vendor/ng-file-upload.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/http-auth-interceptor.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/dirPagination.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/pusher.min.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/pusher-angular.min.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/angular-ui-notification.min.js') }}"></script>
+		<script src="{{ asset('build/js/vendor/blob-util.min.js') }}"></script>
+
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
 
@@ -130,5 +136,14 @@
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>
 	@endif
+<script>
+//	var socket = new Pusher('31ba261ea7bbfd9cde22');
+//	var channel = socket.subscribe('user.1');
+//	channel.bind('CodeProject\\Events\\TaskWasIncluded',
+//			function(data) {
+//				console.log(data);
+//			}
+//	);
+</script>
 </body>
 </html>

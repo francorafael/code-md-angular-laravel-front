@@ -5,6 +5,7 @@ namespace CodeProject\Http\Controllers;
 use CodeProject\Repositories\ClientRepository;
 use CodeProject\Services\ClientService;
 use Illuminate\Http\Request;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ClientController extends Controller
 {
@@ -41,7 +42,14 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-        return $this->service->create($request->all());
+        try {
+            return $this->service->create($request->all());
+        } catch (ValidatorException $e) {
+            Response::json([
+                'error'     => true,
+                'message'   => $e->getMessageBag()
+            ], 400);
+        }
     }
 
     public function show($id)
@@ -56,6 +64,7 @@ class ClientController extends Controller
 
     public function destroy($id)
     {
-        return $this->service->delete($id);
+        $this->service->delete($id);
+        return response("", 204);
     }
 }

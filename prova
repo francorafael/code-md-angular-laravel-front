@@ -1,0 +1,170 @@
+///************* LOGAR *************/
+//Chamar login - cadastro ja logando, se não passo os GetParameter
+//if(dao.logar(cli.getEmail(), cli.getSenha()) != null)
+//public ClienteBean logar(String email, String senha)
+//throws Exception{
+//ClienteBean cli = null;
+//Connection con = ConnectionFactory.getConnection();
+//PreparedStatement ps = con.prepareStatement
+//("select * from clientes p where email = ? and senha = ?");
+//ps.setString(1, email);
+//ps.setString(2, senha);
+//
+//ResultSet rs = ps.executeQuery();
+//if(rs.next()){
+//cli = new ClienteBean(
+//rs.getInt("id"),
+//}
+//rs.close();
+//ps.close();
+//con.close();
+//return cli;
+//}
+///************* LOGAR *************/
+///************* INSERT *************/
+//ClienteBean cli =  new ClienteBean(propriedades do objeto);
+//ClienteDAO dao = new ClienteDAO();
+//dao.inserir(cli);
+//
+//public void inserir(ClienteBean cli)
+//throws Exception{
+//
+//Connection con = ConnectionFactory.getConnection();
+//PreparedStatement ps = con.prepareStatement
+//("insert into clientes "
+//+ "(nome, email, senha, cpf)"
+//+ "values(? ,?, ?, ?)");
+//ps.setString(1, cli.getNome());
+//ps.execute();
+//ps.close();
+//con.close();
+//}
+///************* INSERT *************/
+///************* SESSAO *************/
+//Sessao - dentro do servlet
+//request.getSession()
+//Fora
+//session.
+//remover sessao session.removeAttribute("login");
+//
+///************* SESSAO *************/
+///************* SELECIONAR *************/
+//Chamando a seleção na página
+//VooDAO vood = new VooDAO();
+//VendaBean vb =  null;
+//vb = vood.selecionarVenda(Integer.parseInt(session.getAttribute("idusuario").toString()));
+//if(vb!=null){
+//out.print("Passageiro: "+vb.getCliente_nome()+"<br />");
+//
+//Selecionar Passando o retorno no objeto
+//public VendaBean selecionarVenda(int codigo) {
+//try {
+//Connection con = ConnectionFactory.getConnection();
+//PreparedStatement ps = con.prepareStatement
+//("select * from vendas");
+//VendaBean ven = null;
+//ResultSet rs = ps.executeQuery();
+//
+//if(rs.next()){
+//ven = new VendaBean(
+//rs.getInt("id"),
+//}
+//rs.close();
+//ps.close();
+//con.close();
+//return ven;
+//}catch(Exception ex) {
+//System.out.println(ex.getMessage());
+//return null;
+//}
+//}
+///************* SELECIONAR *************/
+///************* LISTAR *************/
+//Chamando
+//List<AeroportoBean> lista = (new AeroportoDAO()).listaAeroportos();
+//if(lista!=null){
+//for(AeroportoBean aero:lista){
+//<option value="<%=aero.getId()%>"
+//<% if(session.getAttribute("pesq_origem") !=null) {
+//if( Integer.parseInt(session.getAttribute("pesq_origem").toString()) == aero.getId())
+//{ out.print("selected='selected'");} }
+//%>
+//
+//public List<AeroportoBean> listaAeroportos()
+//throws Exception{
+//List<AeroportoBean> lista = null;
+//Connection con = ConnectionFactory.getConnection();
+//PreparedStatement ps =  con.prepareStatement
+//("SELECT * FROM aeroportos ORDER BY cidade");
+//ResultSet rs = ps.executeQuery();
+//while(rs.next()){
+//if(lista==null)
+//lista = new ArrayList<AeroportoBean>();
+//
+//lista.add(new AeroportoBean(
+//rs.getInt("id"),
+//);
+//}
+//rs.close();
+//ps.close();
+//con.close();
+//return lista;
+//}
+///************* LISTAR *************/
+///************* DATA *************/
+//SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
+//data = sf.format(bean.getDatanascimento());
+///************* DATA *************/
+///************* ALTERAR *************/
+//dal.alterar(bean);
+//public boolean alterar(AlunoBean aluno){
+//try{
+//Connection con  = ConnectionFactory.getConnection();
+//PreparedStatement ps = con.prepareStatement("update alunos set alu_nome where alu_codigo = ?");
+//ps.setString(1, aluno.getNome());
+//ps.setInt(2, aluno.getCodigo());
+//ps.execute();
+//ps.close();
+//con.close();
+//return true;
+//}
+//catch(Exception ex){
+//return false;
+//}
+//}
+///************* ALTERAR *************/
+///************* EXCLUIR *************/
+//if(dal.excluir(codigo))
+//public boolean excluir(int codigo){
+//try{
+//Connection con  = ConnectionFactory.getConnection();
+//PreparedStatement ps =  con.prepareStatement("delete from aluno where alu_codigo = ?");
+//ps.setInt(1, codigo);
+//ps.execute();
+//ps.close();
+//con.close();
+//return true;
+//}
+//catch(Exception ex){
+//return false;
+//}
+//}
+///************* EXCLUIR *************/
+///************* COOKIES *************/
+//Cookie meucookie = new Cookie("login","jose");
+//meucookie.setMaxAge(2*24*60*60);
+//response.addCookie(meucookie);
+////obtem a lista de cookie
+//Cookie listac[] = request.getCookies();
+//Cookie nome = null;
+//if(listac!= null)
+//{
+//for(int i=0;i<listac.length;i++)
+//{
+//if(listac[i].getName().equals("login"))
+//{
+//nome = listac[i];
+//break;
+//} } }
+//<%=nome.getValue()%>
+///************* COOKIES *************/

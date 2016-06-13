@@ -1,7 +1,7 @@
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services',
     'app.filters', 'app.directives','ui.bootstrap.typeahead', 'ui.bootstrap.datepicker', 'ui.bootstrap.tpls',
     'ui.bootstrap.dropdown', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination',
-    'mgcrea.ngStrap.navbar', 'mgcrea.ngStrap.dropdown', 'ui.bootstrap.tabs']);
+    'mgcrea.ngStrap.navbar', 'mgcrea.ngStrap.dropdown', 'ui.bootstrap.tabs', 'pusher-angular', 'ui-notification']);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.filters', []);
@@ -13,6 +13,7 @@ angular.module('app.directives', []);
 app.provider('appConfig', ['$httpParamSerializerProvider', function($httpParamSerializerProvider){
     var config = {
         baseUrl: 'http://localhost:8000',
+        pusherKey: '31ba261ea7bbfd9cde22',
         project:{
             status: [
                 {value:1, label: 'Não iniciado'},
@@ -248,7 +249,39 @@ app.config([
 //depois que o angular é carregado isso é executado
 //esta adicionando um evento OAuth error para se for invalido não retornanr se for um token
 // invalido retoranar uma atualizacao o token
-app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth', function($rootScope, $location, $http, $modal, httpBuffer, OAuth) {
+app.run(['$rootScope', '$location', '$http', '$modal', '$cookies', '$pusher', 'httpBuffer', 'OAuth', 'appConfig', 'Notification',
+    function($rootScope, $location, $http, $modal, $cookies, $pusher,  httpBuffer, OAuth, appConfig, Notification) {
+
+    $rootScope.$on('pusher-build', function(event, data){
+        if(data.next.$$route.originalPath != '/login') {
+            if(OAuth.isAuthenticated()) {
+                if (!window.client) {
+                    window.client = new Pusher(appConfig.pusherKey);
+                    var pusher = $pusher(window.client);
+                    var channel = pusher.subscribe('user.' + $cookies.getObject('user').id);
+                    channel.bind('CodeProject\\Events\\TaskWasIncluded',
+                        function (data) {
+                            //console.log(data);
+                            var nome = data.task.name;
+                            Notification.success('Tarefa '+nome+' foi incluida!');
+                        }
+                    );
+                }
+            }
+        }
+
+    });
+
+    $rootScope.$on('pusher-destroy', function(event, data){
+        if(data.next.$$route.originalPath == '/login') {
+            if (window.client) {
+                window.client.disconnect();
+                window.client = null;
+            }
+        }
+    });
+
+
     //evento e proxima rota atual
     $rootScope.$on('$routeChangeStart', function(event,next,current){
         //olhar next se é diferente do login e se token existe na aplicação
@@ -259,6 +292,9 @@ app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth', fu
                 $location.path('login');
             }
         }
+
+        $rootScope.$emit('pusher-build', {next: next});
+        $rootScope.$emit('pusher-destroy', {next: next});
     });
 
     $rootScope.$on('$routeChangeSuccess', function(event,current,previous){

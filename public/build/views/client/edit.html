@@ -9,7 +9,7 @@
                         <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
                             <label class="col-md-4 control-label">Name</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" ng-model="client.name" required>
+                                <input type="text" class="form-control" name="name" ng-model="client.name" >
                                 <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
                                     <div ng-message="required">Campo obrigatório!!</div>
                                 </div>
