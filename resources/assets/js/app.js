@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers',
     'ui.bootstrap.dropdown', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination',
     'mgcrea.ngStrap.navbar', 'mgcrea.ngStrap.dropdown', 'ui.bootstrap.tabs', 'pusher-angular', 'ui-notification']);
 
-angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
+angular.module('app.controllers', ['ngMessages']);
 angular.module('app.filters', []);
 angular.module('app.services', ['ngResource']);
 angular.module('app.directives', []);
@@ -236,7 +236,7 @@ app.config([
             grantPath: 'oauth/access_token',
         });
 
-        //Deixar só com HTTP
+        //Deixar só com HTTP - secure: false HTTPS - secure: true
         OAuthTokenProvider.configure({
             name: 'token',
             options: {
@@ -312,8 +312,8 @@ app.run(['$rootScope', '$location', '$http', '$modal', '$cookies', '$pusher', 'h
             httpBuffer.append(data.rejection.config, data.deferred);
             if (!$rootScope.loginModalOpened) {
                 var modalInstance = $modal.open({
-                    templateUrl: 'build/views/templates/login-modal.html',
-                    controller: 'LoginModalController'
+                    templateUrl: 'build/views/templates/refresh-modal.html',
+                    controller: 'RefreshModalController'
                 });
                 $rootScope.loginModalOpened = true;
             }

@@ -21,7 +21,9 @@
                                 <td>
                                     <a ng-href="#/project/{{o.project_id}}/note/{{o.id}}/edit">
                                         Editar</a>
-                                    <a ng-href="#/project/{{o.project_id}}/note/{{o.id}}/remove">Excluir</a> </td>
+                                    <a ng-href="#/project/{{o.project_id}}/note/{{o.id}}/remove">Excluir</a>
+                                    <a href="javascript:void(0)" ng-click="print(o)">Impressão</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
