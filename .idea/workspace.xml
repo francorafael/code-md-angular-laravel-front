@@ -2,95 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ece0dd93-a8b7-43e1-a226-bbe904ce5615" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/views/templates/projectNoteShow.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/views/templates/refresh-modal.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/refreshModal.js" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\app.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\components.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\flaticon.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\font-awesome.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\vendor\angular-ui-notification.min.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\vendor\bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\vendor\bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\app.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\client\clientDashboard.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\client\clientEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\client\clientList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\client\clientNew.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\client\clientRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\home.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\login.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\loginModal.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\menu.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-file\projectFileEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-file\projectFileList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-file\projectFileNew.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-file\projectFileRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-member\projectMemberList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-member\projectMemberRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-note\projectNoteEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-note\projectNoteList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-note\projectNoteNew.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-note\projectNoteRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-note\projectNoteShow.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-task\projectTaskEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-task\projectTaskList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-task\projectTaskNew.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-task\projectTaskRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project-task\projectTaskShow.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project\projectDashboard.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project\projectEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project\projectList.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project\projectNew.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\controllers\project\projectRemove.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\format-date.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\format-stringToNumber.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\loadTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\login.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\menu-activated.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\projectFileDownload.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\directives\tab-project.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\filters\date-br.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\client.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\clientProject.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\member.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\oauthFixInterceptor.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\project.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\projectFile.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\projectMember.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\projectNote.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\projectTask.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\url.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\services\user.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-animate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-cookies.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-messages.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-oauth2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-resource.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-route.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-strap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular-ui-notification.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\blob-util.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\dirPagination.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\dropdown.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\http-auth-interceptor.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\navbar.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\ng-file-upload.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\pusher-angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\pusher.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\query-string.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\vendor\ui-bootstrap-tpls.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/all.css" afterPath="$PROJECT_DIR$/public/css/all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/all.js.map" afterPath="$PROJECT_DIR$/public/js/all.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/all.js" afterPath="$PROJECT_DIR$/public/js/all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/app.js" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/project-note/list.html" afterPath="$PROJECT_DIR$/public/build/views/project-note/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/project-note/list.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/project-note/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/project-note/projectNoteList.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/project-note/projectNoteList.js" />
+      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\css\all-89380f6a66.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\all-8de1d2b977.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\js\all.js.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\PROGRAMAS\www\code-md-angular-laravel-front\public\build\rev-manifest.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-md-laravel-angular.iws" />
@@ -112,28 +29,7 @@
     <favorites_list name="code-md-laravel-angular" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.330076">
-              <caret line="238" column="65" selection-start-line="238" selection-start-column="65" selection-end-line="238" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -163,7 +59,6 @@
         <option value="$PROJECT_DIR$/resources/assets/js/directives/tab-project.js" />
         <option value="$PROJECT_DIR$/app/Transformers/ProjectTransformer.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProjectTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/views/project/dashboard.html" />
         <option value="$PROJECT_DIR$/resources/assets/js/services/client.js" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
@@ -198,8 +93,9 @@
         <option value="$PROJECT_DIR$/resources/assets/js/views/templates/projectNoteShow.html" />
         <option value="$PROJECT_DIR$/resources/assets/js/controllers/project-note/projectNoteList.js" />
         <option value="$PROJECT_DIR$/resources/assets/js/views/project-note/list.html" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -248,6 +144,29 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-md-angular-laravel-front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-md-angular-laravel-front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-md-angular-laravel-front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Changed Files">
@@ -276,109 +195,6 @@
         </subPane>
         <subPane subId="Tests" />
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-md-angular-laravel-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,7 +202,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blessUs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../code-laravel-ionic" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/PROGRAMAS/www/code-md-angular-laravel-front/resources/bower_components/angular-strap/dist/modules/navbar.js&#10;navbar.js&#9;FILE&#9;file://E:/PROGRAMAS/www/code-md-angular-laravel-front/resources/bower_components/angular-strap/dist/modules/navbar.js&#10;routes.php&#9;FILE&#9;file://E:/PROGRAMAS/www/code-md-angular-laravel-front/app/Http/routes.php&#10;routes.p&#9;FILE&#9;file://E:/PROGRAMAS/www/code-md-angular-laravel-front/app/Http/routes.php&#10;routes&#9;null&#9;null&#10;app.bl&#9;FILE&#9;file://E:/PROGRAMAS/www/code-md-angular-laravel-front/resources/views/app.blade.php" />
   </component>
@@ -447,10 +263,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15989584" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23802084" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.052798312" sideWeight="0.50292826" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -520,48 +336,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Services/UserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.269231">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Presenters/ClientPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ClientRepositoryEloquent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32185885">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/client/clientList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3597246">
-          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Transformers/ClientTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28399312">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Entities/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6729776">
@@ -678,13 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Events/TaskWasIncluded.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13325869">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -863,18 +630,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.330076">
           <caret line="238" column="65" selection-start-line="238" selection-start-column="65" selection-end-line="238" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_24_110459_create_oauth_clients_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/OAuthClientSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32290503">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_03_28_124452_create_project_tasks_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/ModelFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23463687">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ProjectTaskTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2659218">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/TaskWasIncluded.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1329609">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58882684">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40608034">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
